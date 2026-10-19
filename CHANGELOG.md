@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.3.8+paypay
+
+PayPay fork of [mullerpeter/databricks-grafana](https://github.com/mullerpeter/databricks-grafana) v1.3.8, modified by PayPay:
+
+- Plugin ID renamed to `paypay-databricks-datasource` (name "PayPay Databricks").
+- 🔒 Stop logging the full `QueryData`/`CheckHealth` request, which contained the decrypted client secret / token and users' identity tokens.
+- 🔒 SQL text and query payloads are logged at `debug` instead of `info`.
+- 🔒 OAuth pass-through no longer falls back to a token cached from a previous request (another user's token could be reused).
+- 🐛 `retries`, `retryBackoff`, `maxRetryDuration`, `timeout` and `maxRows` settings are now applied (previously ignored).
+- ⬆️ Go 1.26.9 and updated Go dependencies (`govulncheck`: no known vulnerabilities); `govulncheck` added to CI.
+- 👷 Release zip named `<id>-<version>.zip`; Grafana API compatibility check on pull requests.
+
 ## 1.3.8
 
 - Refactor: User context for oauth token pass-through
